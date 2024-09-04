@@ -1,0 +1,224 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Raleway', sans-serif; /* Stylish font */
+  background: linear-gradient(135deg, #ff6f61, #d4a5a5, #ffeb3b, #00c6ff); /* Gradient background */
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite; /* Gradient color shifting */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Container styling */
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Ensures it is above the confetti */
+}
+
+/* Content styling */
+.content h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  margin-bottom: 15px;
+  color: #90ee90; /* Light green color */
+  animation: bounceIn 2s ease, fadeInDown 2s ease; /* Bounce and fadeInDown animations */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Text shadow */
+}
+
+.content h1 span {
+  font-style: italic;
+}
+
+.content h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  animation: pulse 2s infinite, fadeInUp 2s ease; /* Pulse and fadeInUp animations */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Text shadow */
+  color: #ff7e79; /* Lovely color */
+}
+
+.footer {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #ffffff;
+  animation: fadeIn 2s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient shifting animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Confetti styling */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: confettiFall 5s linear infinite, confettiSpin 6s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Music Controls styling */
+.music-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3; /* Ensure it's above other elements */
+}
+
+.music-btn {
+  background-color: #333; /* Grey or black color */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.music-btn:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.music-btn:active {
+  background-color: #222;
+}
