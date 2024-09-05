@@ -28,9 +28,7 @@ const messages = [
      'music/song5.mp3',
      'music/song6.mp3',
      'music/song7.mp3',
-     'music/song8.mp3',
-     'music/song9.mp3',
-     'music/song10.mp3',
+     'music/song8.mp3'
    ];
    
    let currentSongIndex = 0;
